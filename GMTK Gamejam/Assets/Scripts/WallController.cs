@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class WallController : MonoBehaviour {
 
-    private enum SendDir { left = 1, right = 2, up = 3, down = 4 }
+    [SerializeField] private int pushDir = 4; // 4 = Nothing, 0 = left, 1 = Right, 2 = Up, 3 = Down
+
+    PlayerMovement pm;
 
 	// Use this for initialization
 	void Start () {
-		
+        pm = GameObject.Find("Player").GetComponent<PlayerMovement>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (pushDir != 4)
+        {
+            if (coll.gameObject == GameObject.Find("Player"))
+            {
+                pm.moveDir = pushDir;
+            }
+        }
+    }
 }

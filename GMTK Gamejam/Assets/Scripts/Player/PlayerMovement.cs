@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour {
 
     [SerializeField] private float movementSpeed = 5;       // How fast u walk
 
-    [SerializeField] private int moveDir = 4;               // 0 = Left, 1 = Right, 2 = Up, 3 = Down,  4 = not moving
+    [SerializeField] public int moveDir = 4;               // 0 = Left, 1 = Right, 2 = Up, 3 = Down,  4 = not moving
 
     Rigidbody2D rb;
     PlayerController pc;
