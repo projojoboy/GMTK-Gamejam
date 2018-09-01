@@ -40,13 +40,24 @@ public class GameManager : MonoBehaviour
 		GameObject.FindObjectOfType<PlayerMovement>().PlayerMoveEvent += OnPlayerMove;
 	}
 
+	private void Start()
+	{
+		_round.Setup();
+	}
+
 	private void OnRoundSetup()
 	{
+		_round.RoundStart += OnRoundStart;
 		_round.Timer.Start(5);
 	}
 
 	private void OnPlayerMove()
 	{
 		_turnCounter.TurnUpdater();
+	}
+
+	private void OnRoundStart()
+	{
+		GameObject.FindObjectOfType<PlayerMovement>().enabled = true;
 	}
 }
