@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
+    public delegate void PlayerMoveHandler();
+    public event PlayerMoveHandler PlayerMoveEvent;
+
     [SerializeField] private float movementSpeed = 5;       // How fast u walk
 
-    [SerializeField] private int moveDir = 0;               // 0 = Left, 1 = Right, 2 = Up, 3 = Down,  4 = not moving
+    [SerializeField] private int moveDir = 4;               // 0 = Left, 1 = Right, 2 = Up, 3 = Down,  4 = not moving
 
     Rigidbody2D rb;
+    PlayerController pc;
 
 	// Use this for initialization
 	void Start () {
-        rb = GetComponent<Rigidbody2D>();		
+        rb = GetComponent<Rigidbody2D>();
+        pc = GetComponent<PlayerController>();
 	}
 
     private void Update()
@@ -20,18 +25,22 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             moveDir = 0;
+            PlayerMoveEvent();
         }
         else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             moveDir = 1;
+            PlayerMoveEvent();
         }
         else if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             moveDir = 2;
+            PlayerMoveEvent();
         }
         else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             moveDir = 3;
+            PlayerMoveEvent();
         }
         else if (Input.GetKeyDown(KeyCode.Return)) //REMOVE THIS AFTER TEST... Im gonna forget this...
             moveDir = 4;
