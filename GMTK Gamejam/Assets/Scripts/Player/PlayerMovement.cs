@@ -5,9 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     [SerializeField] private float movementSpeed = 5;       // How fast u walk
-    [SerializeField] private float jumpForce = 4;           // How much force u add on the jump
 
-    [SerializeField] private int moveDir = 0;               // 0 = Left, 1 = Right, 2 = not moving
+    [SerializeField] private int moveDir = 0;               // 0 = Left, 1 = Right, 2 = Up, 3 = Down,  4 = not moving
 
     Rigidbody2D rb;
 
@@ -26,33 +25,45 @@ public class PlayerMovement : MonoBehaviour {
         {
             moveDir = 1;
         }
-        else if (Input.GetKeyDown(KeyCode.Space)) //REMOVE THIS AFTER TEST... Im gonna forget this...
+        else if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        {
             moveDir = 2;
+        }
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            moveDir = 3;
+        }
+        else if (Input.GetKeyDown(KeyCode.Return)) //REMOVE THIS AFTER TEST... Im gonna forget this...
+            moveDir = 4;
     }
 
     // Update is called once per frame
     void FixedUpdate () {
-        Walking();
+        Movement();
     }
 
-    private void Walking()
+    private void Movement()
     {
+        // WALKING
         if (moveDir == 0)
         {
-            rb.velocity = new Vector2(-movementSpeed * Time.deltaTime, rb.velocity.y);
+            rb.velocity = new Vector2(-movementSpeed * Time.deltaTime, 0);
         }
         else if (moveDir == 1)
         {
-            rb.velocity = new Vector2(movementSpeed * Time.deltaTime, rb.velocity.y);
+            rb.velocity = new Vector2(movementSpeed * Time.deltaTime, 0);
         }
         else if (moveDir == 2)
         {
+            rb.velocity = new Vector2(0, movementSpeed * Time.deltaTime);
+        }
+        else if (moveDir == 3)
+        {
+            rb.velocity = new Vector2(0, -movementSpeed * Time.deltaTime);
+        }
+        else if (moveDir == 4)
+        {
             rb.velocity = new Vector2(0, 0);
         }
-    }
-
-    private void Jump()
-    {
-
     }
 }
