@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WallController : MonoBehaviour {
 
-    private enum SendDir { left, right, up, down }
+    private enum SendDir { left = 1, right = 2, up = 3, down = 4 }
 
 	// Use this for initialization
 	void Start () {
