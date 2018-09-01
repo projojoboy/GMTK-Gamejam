@@ -7,15 +7,9 @@ public class TurnCounterText : MonoBehaviour {
 
     [SerializeField] private Text turnCounterText;
 
-    private void Awake()
+    private void Start()
     {
-        //GameManager.Instance.TurnCounter.TurnCountEvent += OnTurnCount;
-    }
-
-    // Use this for initialization
-    void Start()
-    {
-        turnCounterText.text = "";
+        GameManager.Instance.TurnCounter.TurnCountEvent += OnTurnCount;
     }
 
     void OnTurnCount(int turnCounter)

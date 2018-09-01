@@ -12,13 +12,15 @@ public class TurnCounter : MonoBehaviour {
 
     private void Start()
     {
-        TurnCountEvent(turnCounter);    
+		if (TurnCountEvent != null)
+			TurnCountEvent(turnCounter);    
     }
 
     public void TurnUpdater()
     {
         turnCounter--;
-        TurnCountEvent(turnCounter);
+		if (TurnCountEvent != null)
+			TurnCountEvent(turnCounter);
 
         if (turnCounter <= 0)
             Dead();

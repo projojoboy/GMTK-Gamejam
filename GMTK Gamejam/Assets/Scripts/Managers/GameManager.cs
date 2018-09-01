@@ -21,6 +21,14 @@ public class GameManager : MonoBehaviour
 			return _round;
 		}
 	}
+	private TurnCounter _turnCounter;
+	public TurnCounter TurnCounter
+	{
+		get
+		{
+			return _turnCounter;
+		}
+	}
 
 	private void Awake()
 	{
@@ -28,6 +36,8 @@ public class GameManager : MonoBehaviour
 
 		_round = GetComponent<Round>();
 		_round.RoundSetup += OnRoundSetup;
+		_turnCounter = GetComponent<TurnCounter>();
+		GameObject.FindObjectOfType<PlayerMovement>().PlayerMoveEvent += OnPlayerMove;
 	}
 
 	private void OnRoundSetup()
@@ -37,6 +47,6 @@ public class GameManager : MonoBehaviour
 
 	private void OnPlayerMove()
 	{
-
+		_turnCounter.TurnUpdater();
 	}
 }
