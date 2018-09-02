@@ -54,7 +54,6 @@ public class MenuController : MonoBehaviour {
         else if(quit == 1)
         {
             //Yes, quit the game
-            Debug.Log("Closing game");
             Application.Quit();
         }
         else if(quit == 2)

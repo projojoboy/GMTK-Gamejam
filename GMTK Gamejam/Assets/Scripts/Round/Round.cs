@@ -16,6 +16,8 @@ public class Round : MonoBehaviour
 	public event RoundSetupHandler RoundSetup;
 	public delegate void RoundStartHandler();
 	public event RoundStartHandler RoundStart;
+	public delegate void RoundEndHandler();
+	public event RoundEndHandler RoundEnd;
 	#endregion
 
 	private void Awake()
@@ -27,16 +29,18 @@ public class Round : MonoBehaviour
 	{
 		if (RoundStart != null)
 			RoundStart();
+	}
 
-		Debug.Log("Round Start");
+	public void Ending()
+	{
+		if (RoundEnd != null)
+			RoundEnd();
 	}
 
 	public void Setup()
 	{
 		if (RoundSetup != null)
 			RoundSetup();
-
-		Debug.Log("Round Setup");
 	}
 
 	private void OnSetupTimerFinished()

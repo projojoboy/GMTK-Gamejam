@@ -1759,54 +1759,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cba7eb33f3b13e4694c858388e6ebda, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &2013055489 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1693426038071286, guid: b49e2a7677bd5a046aeb5348ff2fdbe2,
-    type: 2}
-  m_PrefabInternal: {fileID: 815697951}
 --- !u!224 &2013055490 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224344996040967600, guid: b49e2a7677bd5a046aeb5348ff2fdbe2,
     type: 2}
   m_PrefabInternal: {fileID: 815697951}
---- !u!114 &2013055491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2013055489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3164eb3db9a050745a3ee038d079779c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onRoundSetup:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onRoundStart:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2013055492}
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &2013055492 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114234116831739812, guid: b49e2a7677bd5a046aeb5348ff2fdbe2,
-    type: 2}
-  m_PrefabInternal: {fileID: 815697951}
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &2022705087
 GameObject:
   m_ObjectHideFlags: 0

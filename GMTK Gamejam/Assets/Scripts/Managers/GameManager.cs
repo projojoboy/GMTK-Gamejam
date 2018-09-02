@@ -60,6 +60,13 @@ public class GameManager : MonoBehaviour
 	{
 		GameObject.FindObjectOfType<PlayerMovement>().enabled = true;
 		GameObject.FindObjectOfType<ColorChange>().enabled = true;
+
+		_round.RoundEnd += OnRoundEnd;
+	}
+
+	private void OnRoundEnd()
+	{
+		_round.Timer.Start(3);
 	}
 
 	private void Update()

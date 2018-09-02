@@ -102,6 +102,5 @@ public class PlayerMovement : MonoBehaviour {
 	public void DisableInput()
 	{
 		_inputEnabled = false;
-		_currentMoveDir = 4;
 	}
 }

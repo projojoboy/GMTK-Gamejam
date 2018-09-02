@@ -11,7 +11,6 @@ public class Finish : MonoBehaviour
 	{
 		if (_layerMask == (_layerMask | (1 << col.gameObject.layer)))
 		{
-			Debug.Log("Finish");
 			if (FinishEvent != null)
 				FinishEvent();
 		}

@@ -45,7 +45,7 @@ public class ColorChange : MonoBehaviour {
         {
             if (t < 1 && t > 0)
             {
-                t -= Time.deltaTime / duration;
+                t -= Time.deltaTime / duration / 3;
             }
         }
 
