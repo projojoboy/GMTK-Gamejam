@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour {
 
     [SerializeField] public int moveDir = 4;               // 0 = Left, 1 = Right, 2 = Up, 3 = Down,  4 = not moving
 
+	private int _currentMoveDir;
+
     Rigidbody2D rb;
     PlayerController pc;
 
@@ -18,31 +20,33 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
         pc = GetComponent<PlayerController>();
+
+		_currentMoveDir = moveDir;
 	}
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            moveDir = 0;
+			_currentMoveDir = 0;
 			if (PlayerMoveEvent != null)
 				PlayerMoveEvent();
         }
         else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
-            moveDir = 1;
+			_currentMoveDir = 1;
 			if (PlayerMoveEvent != null)
 				PlayerMoveEvent();
         }
         else if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
-            moveDir = 2;
+			_currentMoveDir = 2;
 			if (PlayerMoveEvent != null)
 				PlayerMoveEvent();
         }
         else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
-            moveDir = 3;
+			_currentMoveDir = 3;
 			if (PlayerMoveEvent != null)
 				PlayerMoveEvent();
         }
@@ -56,23 +60,23 @@ public class PlayerMovement : MonoBehaviour {
     private void Movement()
     {
         // WALKING
-        if (moveDir == 0)
+        if (_currentMoveDir == 0)
         {
             rb.velocity = new Vector2(-movementSpeed * Time.deltaTime, 0);
         }
-        else if (moveDir == 1)
+        else if (_currentMoveDir == 1)
         {
             rb.velocity = new Vector2(movementSpeed * Time.deltaTime, 0);
         }
-        else if (moveDir == 2)
+        else if (_currentMoveDir == 2)
         {
             rb.velocity = new Vector2(0, movementSpeed * Time.deltaTime);
         }
-        else if (moveDir == 3)
+        else if (_currentMoveDir == 3)
         {
             rb.velocity = new Vector2(0, -movementSpeed * Time.deltaTime);
         }
-        else if (moveDir == 4)
+        else if (_currentMoveDir == 4)
         {
             rb.velocity = new Vector2(0, 0);
         }
@@ -82,7 +86,12 @@ public class PlayerMovement : MonoBehaviour {
     {
         if(coll.tag == "MoveWall")
         {
-            moveDir = coll.GetComponent<WallController>().pushDir;
+			_currentMoveDir = coll.GetComponent<WallController>().pushDir;
         }
     }
+
+	public void Setup()
+	{
+		_currentMoveDir = moveDir;
+	}
 }

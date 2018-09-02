@@ -51,4 +51,9 @@ public class ColorChange : MonoBehaviour {
 
         render.material.color = Color.Lerp(Color.white, Color.red, t);
     }
+
+	public void Setup()
+	{
+		t = 0;
+	}
 }

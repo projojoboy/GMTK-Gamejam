@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
 	private void OnRoundSetup()
 	{
 		_round.RoundStart += OnRoundStart;
-		_round.Timer.Start(5);
+		_round.Timer.Start(3);
 	}
 
 	private void OnPlayerMove()
@@ -60,5 +60,11 @@ public class GameManager : MonoBehaviour
 	{
 		GameObject.FindObjectOfType<PlayerMovement>().enabled = true;
 		GameObject.FindObjectOfType<ColorChange>().enabled = true;
+	}
+
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.R))
+			_round.Starting();
 	}
 }

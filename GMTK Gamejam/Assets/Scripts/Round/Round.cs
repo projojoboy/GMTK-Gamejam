@@ -27,12 +27,16 @@ public class Round : MonoBehaviour
 	{
 		if (RoundStart != null)
 			RoundStart();
+
+		Debug.Log("Round Start");
 	}
 
 	public void Setup()
 	{
 		if (RoundSetup != null)
 			RoundSetup();
+
+		Debug.Log("Round Setup");
 	}
 
 	private void OnSetupTimerFinished()

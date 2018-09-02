@@ -4,9 +4,25 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public void KillPlayer()
+	public delegate void PlayerDieHandler();
+	public event PlayerDieHandler PlayerDieEvent;
+
+	private Vector3 _startPosition;
+
+	private void Awake()
+	{
+		_startPosition = transform.position;
+	}
+
+	public void KillPlayer()
     {
-        Debug.Log("U DEAD BRUV");
         GetComponent<PlayerMovement>().enabled = false;
-    }
+		if (PlayerDieEvent != null)
+			PlayerDieEvent();
+	}
+
+	public void Setup()
+	{
+		transform.position = _startPosition;
+	}
 }

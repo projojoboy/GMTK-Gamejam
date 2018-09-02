@@ -10,24 +10,30 @@ public class TurnCounter : MonoBehaviour {
 
     public int turnCounter;
 
+	private int _currentTurnCounter;
+
     private void Start()
     {
+		_currentTurnCounter = turnCounter;
+
 		if (TurnCountEvent != null)
-			TurnCountEvent(turnCounter);    
+			TurnCountEvent(_currentTurnCounter);    
     }
 
     public void TurnUpdater()
     {
-        turnCounter--;
+		if (_currentTurnCounter > 0)
+			_currentTurnCounter--;
+
 		if (TurnCountEvent != null)
-			TurnCountEvent(turnCounter);
-
-        if (turnCounter <= 0)
-            Dead();
+			TurnCountEvent(_currentTurnCounter);
     }
 
-    void Dead()
-    {
-        Debug.Log("U dead bruv");
-    }
+	public void Setup()
+	{
+		_currentTurnCounter = turnCounter;
+
+		if (TurnCountEvent != null)
+			TurnCountEvent(_currentTurnCounter);
+	}
 }
