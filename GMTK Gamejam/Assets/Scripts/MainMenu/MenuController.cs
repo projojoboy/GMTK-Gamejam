@@ -8,14 +8,38 @@ public class MenuController : MonoBehaviour {
     [SerializeField] private GameObject sureQuestion;
     [SerializeField] private GameObject quitButton;
 
-	public void StartGame()
+    private bool controlsShowing = false;
+
+    ControlsScreen cs;
+
+    private void Start()
+    {
+        cs = GameObject.Find("ControlsPanel").GetComponent<ControlsScreen>();
+    }
+
+    public void StartGame()
     {
         //Start Game
+        SceneManager.LoadScene(1);
+
     }
 
     public void Controls()
     {
         //Show Controls
+        if (!controlsShowing)
+        {
+            //Animate Controls in
+            cs.AnimateIn();
+            controlsShowing = !controlsShowing;
+        }
+        else
+        {
+            //Animate Controls out
+            cs.AnimateOut();
+            controlsShowing = !controlsShowing;
+        }
+            
     }
 
     public void QuitGame(int quit)
