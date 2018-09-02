@@ -77,4 +77,12 @@ public class PlayerMovement : MonoBehaviour {
             rb.velocity = new Vector2(0, 0);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D coll)
+    {
+        if(coll.tag == "MoveWall")
+        {
+            moveDir = coll.GetComponent<WallController>().pushDir;
+        }
+    }
 }
