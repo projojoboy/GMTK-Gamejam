@@ -12,8 +12,9 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] public int moveDir = 4;               // 0 = Left, 1 = Right, 2 = Up, 3 = Down,  4 = not moving
 
 	private int _currentMoveDir;
+	private bool _inputEnabled = true;
 
-    Rigidbody2D rb;
+	Rigidbody2D rb;
     PlayerController pc;
 
 	// Use this for initialization
@@ -26,25 +27,27 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+		if (!_inputEnabled) return;
+
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) && _currentMoveDir != 0)
         {
 			_currentMoveDir = 0;
 			if (PlayerMoveEvent != null)
 				PlayerMoveEvent();
         }
-        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) && _currentMoveDir != 1)
         {
 			_currentMoveDir = 1;
 			if (PlayerMoveEvent != null)
 				PlayerMoveEvent();
         }
-        else if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        else if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) && _currentMoveDir != 2)
         {
 			_currentMoveDir = 2;
 			if (PlayerMoveEvent != null)
 				PlayerMoveEvent();
         }
-        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) && _currentMoveDir != 3)
         {
 			_currentMoveDir = 3;
 			if (PlayerMoveEvent != null)
@@ -93,5 +96,12 @@ public class PlayerMovement : MonoBehaviour {
 	public void Setup()
 	{
 		_currentMoveDir = moveDir;
+		_inputEnabled = true;
+	}
+
+	public void DisableInput()
+	{
+		_inputEnabled = false;
+		_currentMoveDir = 4;
 	}
 }

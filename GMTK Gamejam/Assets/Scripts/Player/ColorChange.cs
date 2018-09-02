@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColorChange : MonoBehaviour {
 
-    float duration = 1.5f;
+    [SerializeField] float duration = 1.5f;
     private float t = 0;
 
     Renderer render;
@@ -37,7 +37,7 @@ public class ColorChange : MonoBehaviour {
         {
             if (t < 1)
             {
-                t += Time.deltaTime / duration;
+                t += Time.deltaTime / duration * 2;
             }
 
         }
