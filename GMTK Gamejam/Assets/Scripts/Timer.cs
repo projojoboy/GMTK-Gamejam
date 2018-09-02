@@ -23,11 +23,15 @@ public class Timer
 	{
 		while (_currentSeconds > 0)
 		{
-			SecondsChanged(_currentSeconds);
+			if (SecondsChanged != null)
+				SecondsChanged(_currentSeconds);
+
 			yield return new WaitForSeconds(1);
 			_currentSeconds--;
 		}
-		SecondsChanged(_currentSeconds);
+
+		if (SecondsChanged != null)
+			SecondsChanged(_currentSeconds);
 		Finished();
 	}
 }
