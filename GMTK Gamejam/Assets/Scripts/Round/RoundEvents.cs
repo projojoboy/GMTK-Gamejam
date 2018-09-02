@@ -35,6 +35,7 @@ public class RoundEvents : MonoBehaviour
 
 	private void OnRoundFinish()
 	{
+		Debug.Log("FINISH");
 		onRoundFinish.Invoke();
 	}
 }
