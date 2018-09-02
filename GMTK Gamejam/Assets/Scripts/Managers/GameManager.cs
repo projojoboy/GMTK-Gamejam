@@ -59,5 +59,6 @@ public class GameManager : MonoBehaviour
 	private void OnRoundStart()
 	{
 		GameObject.FindObjectOfType<PlayerMovement>().enabled = true;
+		GameObject.FindObjectOfType<ColorChange>().enabled = true;
 	}
 }
