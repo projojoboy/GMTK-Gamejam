@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
 	private void Start()
 	{
 		_round.Setup();
-	}
+    }
 
 	private void OnRoundSetup()
 	{
