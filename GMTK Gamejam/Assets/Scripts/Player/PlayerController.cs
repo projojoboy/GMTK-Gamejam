@@ -9,8 +9,12 @@ public class PlayerController : MonoBehaviour {
 
 	private Vector3 _startPosition;
 
+    AudioSource audioS;
+    [SerializeField] AudioClip plop;
+
 	private void Awake()
 	{
+        audioS = GetComponent<AudioSource>();
 		_startPosition = transform.position;
 	}
 
@@ -25,4 +29,10 @@ public class PlayerController : MonoBehaviour {
 	{
 		transform.position = _startPosition;
 	}
+
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        audioS.clip = plop;
+        audioS.Play();
+    }
 }
