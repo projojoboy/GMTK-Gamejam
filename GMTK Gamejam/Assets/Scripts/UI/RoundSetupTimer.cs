@@ -7,7 +7,7 @@ public class RoundSetupTimer : MonoBehaviour
 {
 	[SerializeField] private Text _text;
 
-	private void Start()
+	private void Awake()
 	{
 		GameManager.Instance.Round.Timer.SecondsChanged += OnSecondsChanged;
 	}
