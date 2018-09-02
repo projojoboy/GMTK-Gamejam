@@ -2665,6 +2665,16 @@ Prefab:
       propertyPath: m_Volume
       value: 0.658
       objectReference: {fileID: 0}
+    - target: {fileID: 114611163549851342, guid: 919655021b264284899d871197a6d54b,
+        type: 2}
+      propertyPath: onRoundFinish.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 114611163549851342, guid: 919655021b264284899d871197a6d54b,
+        type: 2}
+      propertyPath: onRoundFinish.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 919655021b264284899d871197a6d54b, type: 2}
   m_IsPrefabAsset: 0
