@@ -6,7 +6,6 @@ public class ColorChange : MonoBehaviour {
 
     float duration = 1.5f;
     private float t = 0;
-    bool isReset = false;
 
     Renderer render;
     Rigidbody2D rb;
