@@ -9,7 +9,7 @@ public class RoundSetupTimer : MonoBehaviour
 
 	private void Awake()
 	{
-		GameManager.Instance.Round.Timer.SecondsChanged += OnSecondsChanged;
+		GameManager.Instance.Round.SetupTimer.SecondsChanged += OnSecondsChanged;
 	}
 
 	private void OnSecondsChanged(int seconds)

@@ -2,12 +2,20 @@
 
 public class Round : MonoBehaviour
 {
-	private Timer _timer = new Timer();
-	public Timer Timer
+	private Timer _setupTimer = new Timer();
+	public Timer SetupTimer
 	{
 		get
 		{
-			return _timer;
+			return _setupTimer;
+		}
+	}
+	private Timer _endTimer = new Timer();
+	public Timer EndTimer
+	{
+		get
+		{
+			return _endTimer;
 		}
 	}
 
@@ -18,11 +26,14 @@ public class Round : MonoBehaviour
 	public event RoundStartHandler RoundStart;
 	public delegate void RoundEndHandler();
 	public event RoundEndHandler RoundEnd;
+	public delegate void RoundFinishHandler();
+	public event RoundFinishHandler RoundFinish;
 	#endregion
 
 	private void Awake()
 	{
-		_timer.Finished += OnSetupTimerFinished;
+		_setupTimer.Finished += OnSetupTimerFinished;
+		_endTimer.Finished += OnEndTimerFinished;
 	}
 
 	public void Starting()
@@ -43,8 +54,19 @@ public class Round : MonoBehaviour
 			RoundSetup();
 	}
 
+	public void Finish()
+	{
+		if (RoundFinish != null)
+			RoundFinish();
+	}
+
 	private void OnSetupTimerFinished()
 	{
 		Starting();
+	}
+
+	private void OnEndTimerFinished()
+	{
+		Finish();
 	}
 }

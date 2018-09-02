@@ -8,12 +8,14 @@ public class RoundEvents : MonoBehaviour
 	public UnityEvent onRoundSetup;
 	public UnityEvent onRoundStart;
 	public UnityEvent onRoundEnd;
+	public UnityEvent onRoundFinish;
 
 	private void Start()
 	{
 		GameManager.Instance.Round.RoundSetup += OnRoundSetup;
 		GameManager.Instance.Round.RoundStart += OnRoundStart;
 		GameManager.Instance.Round.RoundEnd += OnRoundEnd;
+		GameManager.Instance.Round.RoundFinish += OnRoundFinish;
 	}
 
 	private void OnRoundSetup()
@@ -29,5 +31,10 @@ public class RoundEvents : MonoBehaviour
 	private void OnRoundEnd()
 	{
 		onRoundEnd.Invoke();
+	}
+
+	private void OnRoundFinish()
+	{
+		onRoundFinish.Invoke();
 	}
 }

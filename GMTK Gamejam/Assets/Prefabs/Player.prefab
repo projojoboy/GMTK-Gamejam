@@ -354,6 +354,14 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+<<<<<<< HEAD
+=======
+  onRoundFinish:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+>>>>>>> b725edf42f5d208547cc3b3bcc076a43ce289ecc
 --- !u!114 &114833983502721664
 MonoBehaviour:
   m_ObjectHideFlags: 1

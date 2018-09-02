@@ -32,6 +32,8 @@ public class Timer
 
 		if (SecondsChanged != null)
 			SecondsChanged(_currentSeconds);
-		Finished();
+
+		if (Finished != null)
+			Finished();
 	}
 }

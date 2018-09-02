@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -48,7 +49,7 @@ public class GameManager : MonoBehaviour
 	private void OnRoundSetup()
 	{
 		_round.RoundStart += OnRoundStart;
-		_round.Timer.Start(3);
+		_round.SetupTimer.Start(3);
 	}
 
 	private void OnPlayerMove()
@@ -61,17 +62,18 @@ public class GameManager : MonoBehaviour
 		GameObject.FindObjectOfType<PlayerMovement>().enabled = true;
 		GameObject.FindObjectOfType<ColorChange>().enabled = true;
 
-		_round.RoundEnd += OnRoundEnd;
-	}
-
-	private void OnRoundEnd()
-	{
-		_round.Timer.Start(3);
+		_round.EndTimer.Start(3);
 	}
 
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.R))
 			_round.Starting();
+	}
+
+	public void NextLevel()
+	{
+		int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+		SceneManager.LoadScene(nextSceneIndex);
 	}
 }
