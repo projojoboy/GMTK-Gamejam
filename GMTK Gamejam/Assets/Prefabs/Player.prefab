@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114732379476620386}
   - component: {fileID: 114833983502721664}
   - component: {fileID: 114586712890529114}
-  - component: {fileID: 82653691993412932}
+  - component: {fileID: 82928778602962682}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -93,7 +93,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!82 &82653691993412932
+--- !u!82 &82928778602962682
 AudioSource:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -354,14 +354,11 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
-=======
   onRoundFinish:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
->>>>>>> b725edf42f5d208547cc3b3bcc076a43ce289ecc
 --- !u!114 &114833983502721664
 MonoBehaviour:
   m_ObjectHideFlags: 1
