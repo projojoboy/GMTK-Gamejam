@@ -25,25 +25,27 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             moveDir = 0;
-            PlayerMoveEvent();
+			if (PlayerMoveEvent != null)
+				PlayerMoveEvent();
         }
         else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             moveDir = 1;
-            PlayerMoveEvent();
+			if (PlayerMoveEvent != null)
+				PlayerMoveEvent();
         }
         else if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             moveDir = 2;
-            PlayerMoveEvent();
+			if (PlayerMoveEvent != null)
+				PlayerMoveEvent();
         }
         else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             moveDir = 3;
-            PlayerMoveEvent();
+			if (PlayerMoveEvent != null)
+				PlayerMoveEvent();
         }
-        else if (Input.GetKeyDown(KeyCode.Return)) //REMOVE THIS AFTER TEST... Im gonna forget this...
-            moveDir = 4;
     }
 
     // Update is called once per frame
