@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WallController : MonoBehaviour {
 
+    [Header("4 = Nothing, 0 = left, 1 = Right, 2 = Up, 3 = Down")]
     [SerializeField] private int pushDir = 4; // 4 = Nothing, 0 = left, 1 = Right, 2 = Up, 3 = Down
 
     PlayerMovement pm;
